@@ -15,15 +15,13 @@ namespace NumbersGame_round_2
 
             // Generates a random number from 1-10
             Random correctNum = new Random();
-            int number = correctNum.Next(1, 10);
-
-            // Hides the random number         
+            int number = correctNum.Next(1, 10);      
             
             // This is to test the random number output
             Console.WriteLine(number);
 
             // Generates number of attempts for user
-            int attempts = 1;
+            int attempts = 0;
             int maxAttempts = 5;
             
             while (attempts < maxAttempts)
@@ -52,10 +50,14 @@ namespace NumbersGame_round_2
                     }
                 }
                     attempts++;
-
+                if (attempts == maxAttempts)
+                {
+                    // Tells user they guessed too many times
+                    Console.WriteLine($"Sorry you are out of attempts. The correct number was {number}.");
+                }
             }
 
-            // Tells user they guessed too many times
+            
 
             
 
