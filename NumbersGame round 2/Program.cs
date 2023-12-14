@@ -31,6 +31,7 @@ namespace NumbersGame_round_2
                 
                 if (int.TryParse(Console.ReadLine(), out int userNum))
                 {
+                    attempts++;
 
                     if (number == userNum)
                     {
@@ -49,7 +50,12 @@ namespace NumbersGame_round_2
                         Console.WriteLine("That Number is too high!");
                     }
                 }
-                    attempts++;
+                else
+                {
+                    // Tells user they input an invalid number to try again
+                    Console.WriteLine("Enter a valid number.");
+                }
+                    
                 if (attempts == maxAttempts)
                 {
                     // Tells user they guessed too many times
