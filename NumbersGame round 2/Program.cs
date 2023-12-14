@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Services;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,32 +13,51 @@ namespace NumbersGame_round_2
         {
             Console.WriteLine("Welcome! Guess the Correct number, you have five tries");
 
-            // Generates a random number from 1-20
+            // Generates a random number from 1-10
             Random correctNum = new Random();
-            int number = correctNum.Next(1, 20);
+            int number = correctNum.Next(1, 10);
 
-            // Hides the random number
-
-            string guessNum = Console.ReadLine();
-            int.TryParse(guessNum, out int userNum);
-
+            // Hides the random number         
+            
+            // This is to test the random number output
             Console.WriteLine(number);
 
             // Generates number of attempts for user
+            int attempts = 1;
+            int maxAttempts = 5;
             
-            // Tells user they are higher than correct number
-
-
-            if (number == userNum)
+            while (attempts < maxAttempts)
             {
-                // Tells user their number is correct
-                Console.WriteLine("That's the right number!");
+                Console.WriteLine("Enter your guess: ");
+                // checks if input is a valid number
+                
+                if (int.TryParse(Console.ReadLine(), out int userNum))
+                {
+
+                    if (number == userNum)
+                    {
+                        // Tells user their number is correct
+                        Console.WriteLine("That's the right number!");
+                        break;
+                    }
+                    else if (userNum < number)
+                    {
+                        // Tells user their number is lower than correct number
+                        Console.WriteLine("That Number is too low!");
+                    }
+                    else if (userNum > number)
+                    {
+                        // Tells user they are higher than correct number
+                        Console.WriteLine("That Number is too high!");
+                    }
+                }
+                    attempts++;
+
             }
-            else if (userNum < number)
-            {
-                // Tells user their number is lower than correct number
-                Console.WriteLine("Number is too low!");
-            }
+
+            // Tells user they guessed too many times
+
+            
 
 
 
