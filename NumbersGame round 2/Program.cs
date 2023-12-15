@@ -57,7 +57,7 @@ namespace NumbersGame_round_2
                 else
                 {
                     // Tells user they input an invalid number to try again
-                    Console.WriteLine("Invalid number. Enter a valid number from 1-10!");
+                    Console.WriteLine("Invalid entry. Enter a valid number from 1-10!");
                 }
                     
                 if (attempts == maxAttempts)
