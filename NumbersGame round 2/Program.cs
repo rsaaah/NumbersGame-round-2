@@ -11,11 +11,11 @@ namespace NumbersGame_round_2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome! Guess the Correct number, you have five tries");
+            Console.WriteLine("Welcome! Guess the Correct number from 1-10, you have five tries");
 
             // Generates a random number from 1-10
             Random correctNum = new Random();
-            int number = correctNum.Next(1, 10);      
+            int number = correctNum.Next(1, 11);      
             
             // This is to test the random number output
             Console.WriteLine(number);
@@ -37,23 +37,27 @@ namespace NumbersGame_round_2
                     {
                         // Tells user their number is correct
                         Console.WriteLine("That's the right number!");
+                        Console.WriteLine($"Attemps taken: {attempts}/5");
                         break;
+                        
                     }
                     else if (userNum < number)
                     {
                         // Tells user their number is lower than correct number
-                        Console.WriteLine("That Number is too low!");
+                        Console.WriteLine("Invalid number.That Number is too low! Enter a valid number from 1-10!");
+                        Console.WriteLine($"Attemps taken: {attempts}/5");
                     }
-                    else if (userNum > number)
+                    else
                     {
                         // Tells user they are higher than correct number
-                        Console.WriteLine("That Number is too high!");
+                        Console.WriteLine("Invalid Number.That Number is too high. Enter a valid number from 1-10!");
+                        Console.WriteLine($"Attemps taken: {attempts}/5");
                     }
                 }
                 else
                 {
                     // Tells user they input an invalid number to try again
-                    Console.WriteLine("Enter a valid number.");
+                    Console.WriteLine("Invalid number. Enter a valid number from 1-10!");
                 }
                     
                 if (attempts == maxAttempts)
